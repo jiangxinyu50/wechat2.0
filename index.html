@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="keywords" content="亚历山达,亚历山达雪糕,亚历山达冰淇淋,雪糕冰淇淋,Alexander's,alexanders,alexander's,冰淇淋,冰棒,冰棍">
+<meta name="description" content="每一口的喜悦，从亚历山达开始。亚历山达坚信，每一位消费者都拥有吃到安全、放心食品的权利，消费者不应每天为食品安全而提心吊胆。亚历山达绝对不添加任何人造香精、人造色素等雪糕制作过程中不必要的添加剂。亚历山达雪糕的味道、颜色都是由天然的原料直接得来。">
+<meta name="author" content="Alexander's --Mr.Jiang">
+<link rel="icon" type="image/png" href="images/icon/favicon.png" />
+	<title>Alexander's</title>
+
+<link href="css/style.css" rel="stylesheet" media="screen">
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css" rel="stylesheet" type="text/css"> -->
+
+<script src="js/jquery-2.0.3.min.js" type="text/javascript"></script>
+<script src="js/swiper-2.0.min.js" type="text/javascript"></script>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="js/lazyload.js" type="text/javascript"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js" type="text/javascript"></script> -->
+<script language="javascript">
+$(document).ready(function(){
+
+	var mySwiper = new Swiper('.index-banner',{
+		pagination: '.index-pagination',
+		loop:true,
+		grabCursor: true,
+		paginationClickable: true,
+		onSlideChangeEnd : function() {
+			var bannerTitle = $(".index-banner ul li.swiper-slide-active img").attr("title");
+			$(".banner-title p").text(bannerTitle);
+		}
+	})
+	var bannerFstTitle = $(".index-banner ul li.swiper-slide-active img").attr("title");
+	$(".banner-title p").text(bannerFstTitle);
+
+	fjcHeight();
+	fontSizeHack();
+	$(".index-banner ul li img").show();
+})
+
+//使用lazyload插件来实现图的缓加载效果
+$(function() {   
+      $("img").lazyload({
+		effect : "fadeIn"
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="main">
+
+	<!-- 顶部栏 -->
+    <div class="header">	
+      <div id="info" name="info" class="info"><span id="infomation" name="infomation" style="font-size:1.5em;color:#000;">现在下单，今天可送达</span></div>
+      <div class="DivSelect">
+    	<select id="city" class="SelectList">  
+    		<option value="深圳" selected="selected">深 圳</option>
+  			<option value="广州">广 州</option>
+  			<option value="惠州">惠 州</option>
+  			<option value="成都">成 都</option>
+  			<option value="南宁">南 宁</option>
+  		</select>
+  	  </div>
+    </div>
+
+	<!-- banner轮播图 -->
+    <div class="index-banner proportion" F="0.40625">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide"><a  href="#" target="_blank"><img src="images/baixiangguo.jpg" title="我们的冰棒是泡在果汁里的"></a></li>
+            <li class="swiper-slide"><a  href="#" target="_blank"><img src="images/ningmeng.jpg" title="Alexander's新宠：柠檬酸奶冰淇淋"></a></li>
+            <li class="swiper-slide"><a  href="#" target="_blank"><img src="images/qiyiguo.jpg" title="奇异果冰棒，来自热带水果的告白"></a></li>
+        </ul>
+
+        <div class="index-pagination"></div>
+        <div class="banner-title"><p></p></div>
+    </div>
+
+	<!-- 优惠券、红包等 -->
+    <div class="hongbao-quan">
+	   <div class="quan">
+	   	  <a href="pages/youhuiquan.html"><div class="quan-style"></div></a>
+	   	  <a href="pages/youhuiquan.html">优惠券</a><br/><span id="yhq_num">3</span><span>张</span>
+	   </div>	
+	   <div class="quan">
+	   	  <a href="pages/hongbao.html"><div class="hongbao-style"></div></a>
+	   	  <a href="pages/hongbao.html">红包</a><br/><span id="hb_num">2</span><span>个</span>
+	   </div>
+	   <div class="new-act">
+		  <a href="#" style="position:relative;">最新活动 >></a><br/>
+	   </div>
+    </div>
+
+	<!-- 列表分类 -->
+	<div style="width:100%;">
+      <ul class="nav">
+        <li id="xpss" class="xpss">
+		  <div style="position: relative;">
+        	<a href="#xpss-box">新品上市</a>
+        	<!-- 上新标识 -->
+			<div class="product-tip bounceIn" style="display:none;"></div>  <!-- 上新标识，有上新就将display属性值更改 -->
+		  </div>
+        </li>
+        <li id="yxzh" class="yxzh">
+		  <div style="position: relative;">
+        	<a href="#yxzh-box">预选组合</a>
+        	<!-- 上新标识 -->
+        	<div class="product-tip bounceIn" style="display:none;"></div>
+          </div>
+        </li>
+        <li id="bbzh" class="bbzh">
+          <div style="position: relative;">
+        	<a href="#bbzh-box">冰棒组合</a>
+        	<!-- 上新标识 -->
+        	<div class="product-tip bounceIn" style="display:none;"></div>
+          </div>
+        </li>
+		<li id="kwzx" class="kwzx">
+		  <div style="position: relative;">
+        	<a href="#kwzx-box">口味自选</a>
+        	<!-- 上新标识 -->
+        	<div class="product-tip bounceIn"></div>
+          </div>
+		</li>
+      </ul>
+    </div>
+	
+	<!-- 新品上市 -->
+    <div id="xpss-box" class="box">
+    	<div class="hd">
+        	<div class="over">
+        		<!-- <ins></ins> -->
+                <span>—&nbsp;&nbsp;新品上市&nbsp;&nbsp;—</span>
+                <!-- <ins></ins> -->
+            </div>
+        </div>
+		<!-- 新品上市 提示信息 -->
+		<p id="xpss_p" class="box-p"></p>
+
+        <ul class="goodslist">
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/mango.jpg" alt="" title=""></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">超值畅享包</a></span>
+	                	<p id="price">￥168.00元/盒</p>
+	                	<a class="btn_down" href="#">加入购物车</a>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/latte.jpg" alt="" title=""></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">超值畅享包</a></span>
+	                	<p id="price">￥168.00元/盒</p>
+	                	<a class="btn_down" href="#">加入购物车</a>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/chocolate.jpg" alt="" title=""></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">超值畅享包</a></span>
+	                	<p id="price">￥168.00元/盒</p>
+	                	<a class="btn_down" href="#">加入购物车</a>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/rose.jpg" alt="" title=""></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">超值畅享包</a></span>
+	                	<p id="price">￥168.00元/盒</p>
+	                	<a class="btn_down" href="#">加入购物车</a>
+	                </div>
+	            </div>   
+            </li>
+        </ul>
+    </div>
+	
+	<!-- 预选组合 -->
+	<div id="yxzh-box" class="box">
+    	<div class="hd">
+        	<div class="over">
+        		<!-- <ins></ins> -->
+                <span>—&nbsp;&nbsp;预选组合&nbsp;&nbsp;—</span>
+                <!-- <ins></ins> -->
+            </div>
+        </div>
+		<!-- 预选组合 提示信息 -->
+		<p id="yxzh_p" class="box-p">11月购买怪兽礼盒可获得15元优惠券</p>
+
+        <ul class="goodslist">
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/monster.jpg" alt="Alexander's 怪兽礼盒" title="Alexander's 怪兽礼盒"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">怪兽礼盒/4杯</a></span>
+	                	<p id="price">￥99.00元/盒</p>
+	                	<a class="btn_down" href="#">加入购物车</a>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/babei.jpg" alt="Alexander's 超值畅享包" title="Alexander's 超值畅享包"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">超值畅享包/8杯</a></span>
+	                	<p id="price">￥168.00元/盒</p>
+	                	<a class="btn_down" href="#">加入购物车</a>
+	                </div>
+	            </div>   
+            </li>
+        </ul>
+    </div>
+
+    <!-- 冰棒组合 -->
+    <div id="bbzh-box" class="box">
+    	<div class="hd">
+        	<div class="over">
+        		<!-- <ins></ins> -->
+                <span>—&nbsp;&nbsp;冰棒组合&nbsp;&nbsp;—</span>
+                <!-- <ins></ins> -->
+            </div>
+        </div>
+		<!-- 冰棒组合 提示信息 -->
+		<p id="bbzh_p" class="box-p"></p>
+
+        <ul class="goodslist">
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/binggun1.jpg" alt="Alexander's 水果冰棒礼盒" title="Alexander's 水果冰棒礼盒"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">水果冰棒礼盒</a></span>	
+	                	<p id="price">￥168.00元/盒</p>
+	                	<a class="btn_down" href="#">加入购物车</a>
+	                </div>
+	            </div>   
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- 自选雪糕口味 -->
+    <div id="kwzx-box" class="box">
+    	<div class="hd">
+        	<div class="over">
+        		<!-- <ins></ins> -->
+                <span>—&nbsp;&nbsp;自选冰淇淋口味&nbsp;&nbsp;—</span>
+                <!-- <ins></ins> -->
+            </div>
+        </div>
+		<!-- 自选口味 提示信息 -->
+		<p id="zxxg_p" class="box-p">自由搭配你想吃的口味，此栏目最低要求下订数量为4杯~</p>
+
+        <ul class="goodslist">
+
+        	<li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/lemon.jpg" alt="Alexander's 柠檬酸奶" title="Alexander's 柠檬酸奶"></a>
+					    <!-- 上新标识 -->
+					   <div class="bounceIn tip"></div>
+	            	</div>
+	            	<div class="gl-right">
+	                	<span><a href="#">柠檬酸奶/Lemon</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/mango.jpg" alt="Alexander's 芒果" title="Alexander's 芒果"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">芒果/Mango</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/durian.jpg" alt="Alexander's 榴莲" title="Alexander's 榴莲"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">榴莲/Durian</a></span>
+	                	<p id="price">￥26.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/uji_matcho.jpg" alt="Alexander's 宇治抹茶" title="Alexander's 宇治抹茶"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">宇治抹茶/Uji Matcho</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/strawberry.jpg" alt="Alexander's 草莓" title="Alexander's 草莓"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">草莓/Strawberry</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/chocolate.jpg" alt="Alexander's 黑巧克力" title="Alexander's 黑巧克力"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">黑巧克力/DarkChocolate</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/vanilla.jpg" alt="Alexander's 香草" title="Alexander's 香草"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">香草/Vanilla</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/milktea.jpg" alt="Alexander's 港式奶茶" title="Alexander's 港式奶茶"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">港式奶茶/HongKong MilkTea</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/coconut.jpg" alt="Alexander's 椰子" title="Alexander's 椰子"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">椰子/Coconut</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/baileys.jpg" alt="Alexander's 百利甜酒" title="Alexander's 百利甜酒"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">百利甜酒/Baileys</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/rose.jpg" alt="Alexander's 高原玫瑰" title="Alexander's 高原玫瑰"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">高原玫瑰/Plateau Rose</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/mint.jpg" alt="Alexander's 薄荷" title="Alexander's 薄荷"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">薄荷/Mint</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+            <li>
+            	<div class="gl">
+	            	<div class="gl-left"><a href="#"><img src="images/latte.jpg" alt="Alexander's 拿铁" title="Alexander's 拿铁"></a></div>
+	            	<div class="gl-right">
+	                	<span><a href="#">拿铁/Latte</a></span>
+	                	<p id="price">￥21.00元/杯</p>
+	                	<div class="i_box">
+	                		<a href="javascript:;" class="J_minus">-</a>
+	                		<input type="text" value="0" class="J_input" />
+	                		<a href="javascript:;" class="J_add">+</a>
+	                	</div>
+	                </div>
+	            </div>   
+            </li>
+
+        </ul>
+    </div>
+    
+	<!-- 购物车隐藏层 -->
+	<div id="fade" class="black_overlay">
+	</div>
+
+	 <div id="MyDiv" class="white_content content_size">
+	 	<div class="cover">
+			<div class="buy-alert">
+		 		<span> 自选冰淇淋须购买4杯以上 </span>
+		 	</div>
+		</div>
+      	
+      	<div class="goods">
+      		<ul>
+			 	<li></li>
+			 	<li></li>
+			 	<li></li>
+      		</ul>
+      	</div>
+
+        <div class="info-margin">
+          <div class="cart-info fl">
+         	<span style="margin-left: 8px;"> 合计 : ￥ </span> <span id="total">00.00</span>
+          </div>
+          <div class="cart-info fr">
+         	<button id="go_buy" class="go-buy"> 立即购买 </button>
+          </div>
+        </div>
+	  </div>
+    <!-- footer -->
+	<div style="margin-top:15px;display:block;border-bottom:solid 1px #FFFFFF;border-top:solid 1px #cacaca;text-indent:-9999px;height:0px;">line</div>
+		<p class="footer"><i class="fa fa-eject"></i><a id="return" href="#" onclick="window.scroll(0,0)">回顶部</a><i class="fa fa-eject"></i></p>
+	<div style="margin:5px auto 10px auto;display:block;border-bottom:solid 1px #cacaca;text-indent:-9999px;height:0px;width:80%;">line</div>
+
+	<div style="height:3em;max-width:768px;"></div>
+		<div class="foot-toolbar menu footer_nav">
+			<ul class="footer_nav-list">
+				<li class="line-right"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> 商城 </a></li>
+				<li class="line-right"><a class="nav-link" href="#"><i class="fa fa-user"></i> 会员 </a></li>
+				<li><a class="nav-link" id="cart" href="#"><i class="fa fa-shopping-cart"></i> 购物车 <span class="nav-counter">4</span></a></li>
+			</ul>
+		</div>
+ </div>
+</body>
+<script type="text/javascript">
+//调用
+$(function(){	
+	$('.i_box').iVaryVal({},function(value,index){
+		$('.i_box').value(value);
+	});	
+});
+</script>
+</html>
