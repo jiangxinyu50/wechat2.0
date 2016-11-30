@@ -34,7 +34,7 @@
     </div>
 
 	<!-- 兑换优惠券 -->
-    <div class="box">
+    <div class="box" style="display:block;">
         	<span class="span1">
             	<input type="text" class="input" style="padding-left:1px;">
         	</span>
@@ -43,37 +43,53 @@
         	</span>
     </div>
 
-	<!-- 红包信息 -->
-    <div id="youhui_info">   
-	   <span class="span4">
-          <p>XXXXX优惠券</p>
-		  <p>2016-10-01 至 2016-10-30</p>
-        </span>
-        <span class="span3">
-           <span>50.00元</span>
-        </span>
-    </div>
-
-    <div id="youhui_info">   
-	   <span class="span4">
-          <p>XXXXX优惠券</p>
-		  <p>2016-10-01 至 2016-10-30</p>
-        </span>
-        <span class="span3">
-           <span>50.00元</span>
-        </span>
-    </div>
-
-    <div id="youhui_info">   
-       <span class="span4">
+	<!-- 优惠券信息 -->
+  <table id="yhq_table" class="table">
+    <!-- 优惠券 依次增加 -->
+    <tr>
+      <td class="td1">
+        <span class="span4">
           <p>XXXXX优惠券</p>
           <p>2016-10-01 至 2016-10-30</p>
         </span>
+      </td>
+      <td class="td2">
         <span class="span3">
-           <span>50.00元</span>
+          <span>50.00元</span>
         </span>
-    </div>
-    
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <span class="span4">
+          <p>XXXXX优惠券</p>
+          <p>2016-10-01 至 2016-10-30</p>
+        </span>
+      </td>
+      <td class="td2">
+        <span class="span3">
+          <span>50.00元</span>
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <span class="span4">
+          <p>XXXXX优惠券</p>
+          <p>2016-10-01 至 2016-10-30</p>
+        </span>
+      </td>
+      <td class="td2">
+        <span class="span3">
+          <span>50.00元</span>
+        </span>
+      </td>
+    </tr>
+
+  </table>
+
    <!-- 购物车隐藏层 -->
    <div id="fade" class="black_overlay">
    </div>
@@ -87,9 +103,9 @@
         
         <div class="goods">
           <ul>
-        <li></li>
-        <li></li>
-        <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
         </div>
 
@@ -104,13 +120,17 @@
     </div>
 
     <!-- footer -->
-		<div class="foot-toolbar menu">
-			<ul>
-				<a href="../index.html"><li class="line-right"><i class="fa fa-home"></i> 商城</li></a>
-				<a href="#"><li class="line-right"><i class="fa fa-user"></i> 会员</li></a>
-				<a id="cart" href="#"><li><i class="fa fa-shopping-cart"></i> 购物车</li></a>
-			</ul>
-		</div>
+    <div style="margin:12px auto 10px auto;display:block;border-bottom:solid 1px #cacaca;text-indent:-9999px;height:0px;width:100%;">我们是有底线的</div>
+    <div style="height:3em;max-width:768px;"></div>
+
+		<div class="foot-toolbar menu footer_nav">
+      <ul class="footer_nav-list">
+        <li class="line-right"><a class="nav-link" href="index.html"><i class="fa fa-home"></i> 商城 </a></li>
+        <li class="line-right"><a class="nav-link" href="#"><i class="fa fa-user"></i> 会员 </a></li>
+        <li><a class="nav-link" id="cart" href="#"><i class="fa fa-shopping-cart"></i> 购物车 <span class="nav-counter">4</span></a></li>
+      </ul>
+    </div>
+
   </div>
 </body>
 </html>
